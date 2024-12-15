@@ -1,0 +1,58 @@
+html {
+    background: #000;
+    color: #fff;
+    font-family: monospace;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    margin: 0;
+}
+
+.section {
+    margin: 3rem;
+    width: 30rem;
+}
+
+p {
+    text-align: justify;
+}
+
+li {
+    text-align: left;
+}
+
+.card {
+    width: 30rem;
+    height: 20rem;
+}
+
+.card-side {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.5rem;
+}
+
+#dark-side {
+    background-color: #111;
+    color: #eee;
+}
+
+#light-side {
+    background-color: #eee;
+    color: #111;
+}
+
+.hide {
+    display: none;
+}
