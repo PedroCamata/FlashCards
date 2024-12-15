@@ -9,40 +9,43 @@
 </head>
 
 <body>
-    <div class="section">
-        <h1>Flash Cards</h1>
-    </div>
+    <div id="instructions">
+        <div class="section">
+            <h1>Flash Cards</h1>
+        </div>
 
-    <div class="section">
-        <p>
-            Import your file with all your flash cards data
-        </p>
-        <p>
-            Your file must meet the following requirements:
-        </p>
-        <p>
-            Format:
-        <ul>
-            <!-- <li>
-                A .csv file with no headers and exactly 2 columns.
-            </li> -->
-            <li>
-                A .txt file with one card per line, with columns separated by a comma.
-            </li>
-        </ul>
-        </p>
+        <div class="section">
+            <p>
+                Import your file with all your flash cards data
+            </p>
+            <p>
+                Your file must meet the following requirements:
+            </p>
+            <p>
+                Format:
+            <ul>
+                <li>
+                    A .txt file with one card per line, with card sides separated by a comma.
+                </li>
+            </ul>
+            </p>
+            <p>
+                The cards will be shuffled after upload.
+            </p>
 
-        <p><strong>Upload your document:</strong></p>
-        <form action="">
-            <input type="file" id="file_input" name="filename">
-        </form>
+            <p><strong>Upload your document:</strong></p>
+            <form action="">
+                <input type="file" id="file-input" name="filename">
+            </form>
+        </div>
     </div>
 
     <div id="card-box" class="section hide">
         <div class="card">
-            <div id="dark-side" class="card-side">Jabuti</div>
-            <div id="light-side" class="card-side">Tortoise</div>
+            <div id="dark-side" class="card-side">Tartaruga</div>
+            <div id="light-side" class="card-side">Turtle</div>
         </div>
+        <div id="card-counter"></div>
     </div>
 </body>
 <script type="text/javascript" src="action.js"></script>

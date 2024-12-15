@@ -53,6 +53,10 @@ li {
     color: #111;
 }
 
+#card-counter {
+    margin: 1rem;
+}
+
 .hide {
     display: none;
 }

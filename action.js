@@ -3,27 +3,17 @@ var globalDeckIndex = 0;
 
 function shuffle(array) {
     let currentIndex = array.length;
-
-    // While there remain elements to shuffle...
     while (currentIndex != 0) {
-
-        // Pick a remaining element...
         let randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-
-        // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
     }
 }
 
 function handleFileUpload(evt) {
-    let files = evt.target.files; // JS FileList object
-
-    // use the 1st file from the list
-    let file = files[0];
-
-    let reader = new FileReader(); // built in API
+    let file = evt.target.files[0];
+    let reader = new FileReader();
 
     let importDeck = (e) => {
         let fileStringfied = e.target.result;
@@ -41,13 +31,9 @@ function handleFileUpload(evt) {
         deck = cardsData;
         console.info(deck);
 
-        // Shuffle deck
-
-        shuffle(deck);
-
-        // Display first card
         document.getElementById("card-box").classList.remove("hide");
-        globalDeckIndex = -1;
+        document.getElementById("instructions").classList.add("hide");
+        globalDeckIndex = Number.MAX_VALUE - 1;
         nextCard();
     };
 
@@ -61,12 +47,13 @@ function handleFileUpload(evt) {
     // Read the file as text.
     reader.readAsText(file);
 }
-document.getElementById('file_input')
-    .addEventListener('change', handleFileUpload, false);
+document.getElementById("file-input")
+    .addEventListener("change", handleFileUpload, false);
 
 
 let cardDarkSide = document.getElementById("dark-side");
 let cardLightSide = document.getElementById("light-side");
+let cardCounter = document.getElementById("card-counter");
 
 function flipCard() {
     cardDarkSide.classList.add("hide");
@@ -80,6 +67,8 @@ function nextCard() {
         shuffle(deck);
     }
 
+    cardCounter.innerHTML = (globalDeckIndex + 1).toString() + "/" + deck.length;
+
     // Get next card
     cardDarkSide.innerHTML = deck[globalDeckIndex][0];
     cardLightSide.innerHTML = deck[globalDeckIndex][1];
@@ -88,8 +77,8 @@ function nextCard() {
     cardDarkSide.classList.remove("hide");
 }
 
-document.getElementById('dark-side')
-    .addEventListener('click', flipCard, false);
+document.getElementById("dark-side")
+    .addEventListener("click", flipCard, false);
 
-document.getElementById('light-side')
-    .addEventListener('click', nextCard, false);
+document.getElementById("light-side")
+    .addEventListener("click", nextCard, false);
